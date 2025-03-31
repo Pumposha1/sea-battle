@@ -64,7 +64,12 @@ class Board:
                 cell = self.grid[i][j]
                 if hide_ships and cell == SHIP:
                     row.append(EMPTY)
-     # Проверка попадания
+                else:
+                    row.append(cell)
+            print(f"{i + 1:2} " + " ".join(row))
+
+    
+        # Проверка попадания
     def check_hit(self, x, y):
         if self.grid[y][x] == SHIP:
             self.grid[y][x] = HIT
@@ -83,8 +88,3 @@ class Board:
         else:
             print("Уже стреляли сюда!")
             return False
-
-                else:
-                    row.append(cell)
-            print(f"{i + 1:2} " + " ".join(row))
-    
